@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santiago Romera · Preparador Físico · Fútbol</title>
+<meta name="description" content="Preparador físico de fútbol formado en España. Contenido de experto para marcas deportivas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negro:#000000;
+  --superficie:#0D0D0D;
+  --linea:#1F1F1F;
+  --verde:#7ED321;
+  --blanco:#FFFFFF;
+  --gris:#8A8A8A;
+
+  --display:'Archivo',system-ui,sans-serif;
+  --data:'IBM Plex Mono',ui-monospace,monospace;
+
+  --max:1180px;
+  --pad:clamp(20px,5vw,48px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+
+body{
+  background:var(--negro);
+  color:var(--blanco);
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--verde);outline-offset:3px}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- ETIQUETA DE SECCIÓN ---------- */
+.eyebrow{
+  font-family:var(--data);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--verde);
+  margin-bottom:18px;
+  display:block;
+}
+
+h2{
+  font-size:clamp(30px,5vw,52px);
+  font-weight:900;
+  letter-spacing:-.02em;
+  line-height:1.02;
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+
+/* ---------- DIVISOR: LÍNEA DE MEDIO CAMPO ---------- */
+.pitch-divider{
+  position:relative;
+  height:1px;
+  background:var(--linea);
+  max-width:var(--max);
+  margin:0 auto;
+}
+.pitch-divider::after{
+  content:"";
+  position:absolute;
+  left:50%;top:50%;
+  width:54px;height:54px;
+  transform:translate(-50%,-50%);
+  border:1px solid var(--linea);
+  border-radius:50%;
+  background:var(--negro);
+}
+
+section{padding:clamp(64px,10vw,110px) 0}
+
+/* ---------- PORTADA ---------- */
+.hero{
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  padding-top:clamp(48px,8vw,80px);
+  position:relative;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:clamp(28px,5vw,64px);
+  align-items:center;
+  width:100%;
+}
+.hero-name{
+  font-size:clamp(48px,11vw,124px);
+  font-weight:900;
+  line-height:.86;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero-name span{color:var(--verde);display:block}
+
+.hero-role{
+  font-family:var(--data);
+  font-size:clamp(12px,1.4vw,14px);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin-bottom:14px;
+}
+.hero-claim{
+  font-size:clamp(17px,2.1vw,22px);
+  font-weight:500;
+  max-width:30ch;
+  margin-bottom:38px;
+  color:var(--blanco);
+}
+
+.hero-photo{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border:1px solid var(--linea);
+  filter:grayscale(100%) contrast(1.06);
+}
+
+/* ---------- TIRA DE MÉTRICAS ---------- */
+.metrics-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--linea);
+  border-bottom:1px solid var(--linea);
+}
+.metric{padding:24px 20px 24px 0}
+.metric:not(:last-child){border-right:1px solid var(--linea);padding-right:20px}
+.metric:not(:first-child){padding-left:20px}
+.metric-num{
+  font-family:var(--data);
+  font-size:clamp(22px,3.4vw,36px);
+  font-weight:600;
+  color:var(--verde);
+  line-height:1;
+  margin-bottom:8px;
+}
+.metric-label{
+  font-family:var(--data);
+  font-size:10.5px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--gris);
+  line-height:1.45;
+}
+
+.hero-links{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  font-family:var(--data);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:13px 26px;
+  border:1px solid var(--verde);
+  color:var(--verde);
+  transition:background .18s ease,color .18s ease;
+}
+.btn:hover{background:var(--verde);color:var(--negro)}
+.btn-ghost{border-color:var(--linea);color:var(--gris)}
+.btn-ghost:hover{background:transparent;border-color:var(--blanco);color:var(--blanco)}
+
+/* ---------- QUIÉN SOY ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.about-text p{font-size:clamp(15px,1.7vw,17.5px);color:#D6D6D6;margin-bottom:18px;max-width:46ch}
+
+.creds{list-style:none;margin-top:34px;border-top:1px solid var(--linea)}
+.creds li{
+  padding:15px 0;
+  border-bottom:1px solid var(--linea);
+  display:flex;
+  gap:16px;
+  align-items:baseline;
+  font-size:14.5px;
+}
+.creds .yr{
+  font-family:var(--data);
+  font-size:11.5px;
+  color:var(--verde);
+  flex-shrink:0;
+  min-width:74px;
+  letter-spacing:.04em;
+}
+.creds .txt{color:#D6D6D6}
+
+.spain-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.spain-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--linea)}
+.spain-photos img:first-child{grid-column:1/-1;aspect-ratio:16/10}
+
+/* ---------- FORMATOS ---------- */
+.formats{border-top:1px solid var(--linea)}
+.format{
+  padding:26px 0;
+  border-bottom:1px solid var(--linea);
+  display:grid;
+  grid-template-columns:34px 1fr 1.25fr;
+  gap:clamp(14px,3vw,36px);
+  align-items:baseline;
+}
+.format-idx{font-family:var(--data);font-size:11px;color:var(--gris)}
+.format-name{
+  font-size:clamp(16px,2vw,20px);
+  font-weight:700;
+  color:var(--verde);
+  letter-spacing:-.01em;
+}
+.format-desc{color:#B4B4B4;font-size:14.5px;max-width:52ch}
+
+/* ---------- ALCANCE ---------- */
+.reach-lead{
+  font-size:clamp(19px,2.8vw,30px);
+  font-weight:700;
+  line-height:1.28;
+  max-width:24ch;
+  letter-spacing:-.015em;
+  margin-bottom:44px;
+}
+.reach-lead em{color:var(--verde);font-style:normal}
+
+.data-table{width:100%;border-collapse:collapse;font-family:var(--data);font-size:13px}
+.data-table tr{border-bottom:1px solid var(--linea)}
+.data-table tr:first-child{border-top:1px solid var(--linea)}
+.data-table td{padding:14px 0}
+.data-table td:first-child{color:var(--gris);letter-spacing:.04em}
+.data-table td:last-child{text-align:right;color:var(--blanco);font-weight:600}
+.data-table td.hl{color:var(--verde)}
+
+.reach-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+
+/* ---------- PORTAFOLIO ---------- */
+.cat{margin-bottom:64px}
+.cat-head{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  border-bottom:1px solid var(--linea);
+  padding-bottom:14px;
+  margin-bottom:24px;
+  flex-wrap:wrap;
+}
+.cat-title{
+  font-size:clamp(17px,2.2vw,23px);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+}
+.cat-note{font-family:var(--data);font-size:11px;color:var(--gris);letter-spacing:.05em}
+.cat-badge{
+  font-family:var(--data);
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--negro);
+  background:var(--verde);
+  padding:3px 9px;
+}
+
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.video-card{position:relative;background:var(--superficie);border:1px solid var(--linea)}
+.video-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:var(--superficie)}
+.card-brand{
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:var(--blanco);
+  padding:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+  pointer-events:none;
+}
+.card-brand img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.video-cap{
+  font-family:var(--data);
+  font-size:10.5px;
+  letter-spacing:.06em;
+  color:var(--gris);
+  padding:11px 13px;
+  border-top:1px solid var(--linea);
+  text-transform:uppercase;
+}
+
+/* ---------- MARCAS ---------- */
+.brands{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.brand{
+  width:104px;height:104px;
+  border:1px solid var(--linea);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--superficie);
+  padding:16px;
+}
+.brand img{max-width:100%;max-height:100%;object-fit:contain}
+.brands-note{font-family:var(--data);font-size:12px;color:var(--gris);margin-top:24px;letter-spacing:.04em}
+
+/* ---------- FOTOS ---------- */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.photo-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--linea)}
+
+/* ---------- CONTACTO ---------- */
+.contact{border-top:1px solid var(--linea)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:start}
+.contact-line{
+  display:block;
+  font-size:clamp(19px,3vw,30px);
+  font-weight:700;
+  letter-spacing:-.02em;
+  padding:18px 0;
+  border-bottom:1px solid var(--linea);
+  transition:color .18s ease;
+}
+.contact-line:hover{color:var(--verde)}
+.contact-line small{
+  display:block;
+  font-family:var(--data);
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin-bottom:5px;
+}
+.contact-copy{font-size:16px;color:#B4B4B4;max-width:34ch}
+
+footer{padding:34px 0;border-top:1px solid var(--linea)}
+.foot{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--data);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--gris);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .hero{min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-photo{max-width:260px;aspect-ratio:1/1;border-radius:50%}
+  .about-grid,.reach-cols,.contact-grid{grid-template-columns:1fr}
+  .format{grid-template-columns:26px 1fr;gap:12px}
+  .format-desc{grid-column:2/-1;margin-top:6px}
+  .metrics-strip{grid-template-columns:1fr}
+  .metric{border-right:none!important;border-bottom:1px solid var(--linea);padding:18px 0!important}
+  .metric:last-child{border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== PORTADA ========== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-role">Preparador Físico · Fútbol</p>
+      <h1 class="hero-name">Santiago<span>Romera</span></h1>
+      <p class="hero-claim">Contenido de experto para marcas deportivas.</p>
+
+      <div class="metrics-strip">
+        <div class="metric">
+          <div class="metric-num">833K</div>
+          <div class="metric-label">Reproducciones<br>mensuales</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">29.500</div>
+          <div class="metric-label">Seguidores<br>TikTok + Instagram</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">88%</div>
+          <div class="metric-label">Hombres<br>18–34 años</div>
+        </div>
+      </div>
+
+      <div class="hero-links">
+        <a class="btn" href="#contacto">Contacto</a>
+        <a class="btn btn-ghost" href="https://instagram.com/tatiromeraok" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-ghost" href="https://tiktok.com/@tatiromeraok" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+
+    <img class="hero-photo" src="img/perfil.jpg" alt="Santiago Romera">
+  </div>
+</header>
+
+<div class="pitch-divider"></div>
+
+<!-- ========== QUIÉN SOY ========== -->
+<section id="quien-soy">
+  <div class="wrap">
+    <span class="eyebrow">01 — Quién soy</span>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Jugué y me<br>formé en España</h2>
+        <p>Fui futbolista en España —AD Alcorcón y Burgos— y hoy soy preparador físico especializado en fútbol y alto rendimiento, con formación universitaria española.</p>
+        <p>Entrené a más de 60 atletas en categorías de reserva, primera, cuarta y quinta división, y trabajé en club en España como responsable de preparación física.</p>
+        <p>Creo contenido para marcas deportivas que necesitan hablarle a futbolistas con criterio técnico, no con lugares comunes.</p>
+
+        <ul class="creds">
+          <li><span class="yr">2021</span><span class="txt">Futbolista — AD Alcorcón, Madrid, España</span></li>
+          <li><span class="yr">2021</span><span class="txt">Especialización en Alto Rendimiento en la Preparación Física — Universidad Europea Miguel de Cervantes, Valladolid</span></li>
+          <li><span class="yr">2022/23</span><span class="txt">Futbolista — Burgos, España</span></li>
+          <li><span class="yr">2023</span><span class="txt">Técnico Deportivo en Fútbol, Primer Nivel — León, España</span></li>
+          <li><span class="yr">2025</span><span class="txt">Preparador físico — CD Realeb, Jaén, España</span></li>
+          <li><span class="yr">+60</span><span class="txt">Atletas entrenados en categorías formativas y primera</span></li>
+        </ul>
+      </div>
+
+      <div class="spain-photos">
+        <img src="img/alcorcon-estadio.jpg" alt="Santiago Romera en el estadio del AD Alcorcón" style="object-position:50% 68%;">
+        <img src="img/alcorcon-cancha.jpg" alt="Santiago Romera con la camiseta del AD Alcorcón">
+        <img src="img/burgos.jpg" alt="Santiago Romera con la camiseta del Burgos">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<!-- ========== MI CONTENIDO ========== -->
+<section id="contenido">
+  <div class="wrap">
+    <span class="eyebrow">02 — Mi contenido</span>
+    <h2>Formatos<br>que produzco</h2>
+
+    <div class="formats">
+      <div class="format">
+        <span class="format-idx">01</span>
+        <span class="format-name">Demostración con pizarra táctica</span>
+        <p class="format-desc">El producto integrado en una explicación táctica sobre mi pizarra digital de desarrollo propio: jugadores, conos, picas y porterías en movimiento. Formato exclusivo.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">02</span>
+        <span class="format-name">Testimonial con credencial</span>
+        <p class="format-desc">El producto respaldado desde mi formación en España y mi experiencia con más de 60 atletas entrenados. La marca no habla a través de un consumidor: habla a través de un profesional.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">03</span>
+        <span class="format-name">Educativo con producto integrado</span>
+        <p class="format-desc">Contenido que enseña algo concreto —un ejercicio, un concepto de rendimiento, un error común— donde el producto aparece como herramienta, no como interrupción.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">04</span>
+        <span class="format-name">Review técnico</span>
+        <p class="format-desc">Análisis del producto desde el criterio de un preparador físico: para qué sirve, cuándo usarlo y qué esperar realmente. Sin promesas vacías.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">05</span>
+        <span class="format-name">Producto en uso</span>
+        <p class="format-desc">El producto integrado en una sesión de entrenamiento real, en cancha. No simulado.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">06</span>
+        <span class="format-name">Video Ads</span>
+        <p class="format-desc">Contenido pensado para campañas pagas: hook en los primeros 3 segundos, estructura de retención y llamado a la acción. Listo para Meta y TikTok Ads.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">07</span>
+        <span class="format-name">Unboxing</span>
+        <p class="format-desc">Presentación del producto, packaging y primera impresión, con la mirada de alguien que trabaja con ese material todos los días.</p>
+      </div>
+      <div class="format">
+        <span class="format-idx">08</span>
+        <span class="format-name">Fotos de producto</span>
+        <p class="format-desc">Imágenes en contexto deportivo real: cancha, gimnasio, sesión de entrenamiento. Listas para redes o ecommerce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<!-- ========== ALCANCE ========== -->
+<section id="alcance">
+  <div class="wrap">
+    <span class="eyebrow">03 — Alcance</span>
+    <p class="reach-lead">El 90% de mi audiencia llega por algoritmo, no por seguirme. Una marca que trabaja conmigo no compra seguidores: <em>compra distribución.</em></p>
+
+    <div class="reach-cols">
+      <div>
+        <table class="data-table">
+          <tr><td>Reproducciones mensuales</td><td class="hl">833.000</td></tr>
+          <tr><td>Instagram · 90 días</td><td>1.540.697</td></tr>
+          <tr><td>Personas alcanzadas · IG</td><td>712.142</td></tr>
+          <tr><td>TikTok · 60 días</td><td>640.000</td></tr>
+          <tr><td>Interacciones totales</td><td>161.330</td></tr>
+          <tr><td>Pieza de mayor alcance</td><td class="hl">603.000</td></tr>
+          <tr><td>Audiencia no seguidora · IG</td><td>93,3%</td></tr>
+          <tr><td>Tráfico "Para ti" · TikTok</td><td>85,5%</td></tr>
+          <tr><td>Crecimiento IG · 90 días</td><td class="hl">+88,6%</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="data-table">
+          <tr><td>Género</td><td>88% hombres</td></tr>
+          <tr><td>25–34 años</td><td>42,4%</td></tr>
+          <tr><td>18–24 años</td><td>39,4%</td></tr>
+          <tr><td>35–44 años</td><td>11,5%</td></tr>
+          <tr><td>Argentina</td><td>60,7%</td></tr>
+          <tr><td>México</td><td>6,3%</td></tr>
+          <tr><td>Colombia</td><td>6,1%</td></tr>
+          <tr><td>Chile · Uruguay</td><td>5,5%</td></tr>
+          <tr><td>España</td><td>4,3%</td></tr>
+        </table>
+        <p class="brands-note">Nicho: futbolistas amateur y semiprofesionales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<!-- ========== PORTAFOLIO ========== -->
+<section id="portafolio">
+  <div class="wrap">
+    <span class="eyebrow">04 — Portafolio</span>
+    <h2>Trabajo</h2>
+
+    <!-- PIZARRA -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Pizarra táctica interactiva</span>
+        <span class="cat-badge">Formato propio</span>
+        <span class="cat-note">Herramienta de desarrollo exclusivo</span>
+      </div>
+      <div class="videos">
+        <div class="video-card"><video src="videos/pizarra-doble-area.mp4" poster="img/posters/pizarra-doble-area.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Doble área · Demostración táctica</div></div>
+        <div class="video-card"><video src="videos/pizarra-sin-club-doble-turno.mp4" poster="img/posters/pizarra-sin-club-doble-turno.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Sin club, doble turno · Educativo</div></div>
+        <div class="video-card"><video src="videos/pizarra-fuerza-velocidad-potencia.mp4" poster="img/posters/pizarra-fuerza-velocidad-potencia.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Fuerza, velocidad, potencia · Demostración táctica</div></div>
+      </div>
+    </div>
+
+    <!-- COLABORACIONES -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Colaboraciones con marcas</span>
+        <span class="cat-note">Contenido promocional</span>
+      </div>
+      <div class="videos">
+        <div class="video-card">
+          <span class="card-brand"><img src="img/logo-torque.png" alt="Torque"></span>
+          <video src="videos/torque-cancha.mp4" poster="img/posters/torque-cancha.jpg" controls playsinline preload="metadata"></video>
+          <div class="video-cap">Torque · Promocional</div>
+        </div>
+        <div class="video-card">
+          <span class="card-brand"><img src="img/logo-torque.png" alt="Torque"></span>
+          <video src="videos/torque-setup.mp4" poster="img/posters/torque-setup.jpg" controls playsinline preload="metadata"></video>
+          <div class="video-cap">Torque · Promocional</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPLEMENTACIÓN -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Suplementación deportiva</span>
+        <span class="cat-note">Review técnico · Testimonial</span>
+      </div>
+      <div class="videos">
+        <div class="video-card"><video src="videos/creatina.mp4" poster="img/posters/creatina.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Creatina · Review técnico</div></div>
+        <div class="video-card"><video src="videos/proteina.mp4" poster="img/posters/proteina.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Proteína · Testimonial</div></div>
+      </div>
+    </div>
+
+    <!-- EQUIPAMIENTO -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Equipamiento de entrenamiento</span>
+        <span class="cat-note">Producto en uso · Educativo</span>
+      </div>
+      <div class="videos">
+        <div class="video-card"><video src="videos/conos.mp4" poster="img/posters/conos.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Conos · Educativo</div></div>
+      </div>
+    </div>
+
+    <!-- INDUMENTARIA -->
+    <div class="cat">
+      <div class="cat-head">
+        <span class="cat-title">Indumentaria y calzado</span>
+        <span class="cat-note">Review técnico</span>
+      </div>
+      <div class="videos">
+        <div class="video-card"><video src="videos/botines.mp4" poster="img/posters/botines.jpg" controls playsinline preload="metadata"></video><div class="video-cap">Botines · Review técnico</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="pitch-divider"></div>
+
+<!-- ========== FOTOS ========== -->
+<section id="fotos">
+  <div class="wrap">
+    <span class="eyebrow">05 — Fotos</span>
+    <h2>Producto en<br>contexto real</h2>
+    <div class="photo-grid">
+      <img src="img/foto-01.jpg" alt="Sesión de entrenamiento con conos y pelota">
+      <img src="img/foto-02.jpg" alt="Trabajo con aros de coordinación">
+      <img src="img/foto-03.jpg" alt="Entrenamiento en cancha con material">
+      <img src="img/foto-04.jpg" alt="Control de pelota en cancha">
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACTO ========== -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <span class="eyebrow">06 — Contacto</span>
+    <div class="contact-grid">
+      <div>
+        <h2>Hablemos</h2>
+        <p class="contact-copy">Contame qué necesita tu marca y armamos la propuesta.</p>
+      </div>
+      <div>
+        <a class="contact-line" href="https://wa.me/5493513735738" target="_blank" rel="noopener">
+          <small>WhatsApp</small>+54 9 351 373 5738
+        </a>
+        <a class="contact-line" href="mailto:empreyfinatati@gmail.com">
+          <small>Email</small>Escribime
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>Santiago Romera · Preparador Físico</span>
+    <span>Córdoba, Argentina</span>
+  </div>
+</footer>
+
+</body>
+</html>
